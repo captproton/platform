@@ -1,2 +1,56 @@
-<h1>Backstage#index</h1>
-<p>Find me in app/views/backstage/index.html.erb</p>
+<div class="dashboard-grid">
+
+    <div class="metric-blocks">
+      <div class="card">
+        <div class="card-body">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9340/mb1.png" class="img-fluid">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9340/mb2.png" class="img-fluid">
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9340/mb3.png" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  
+  
+    <div class="card card-transactions-chart">
+      <div class="card-body">
+        <%= link_to "Sites", backstage_sites_path %><br />
+        <%= link_to "Pages", backstage_pages_path %>
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9340/bigchart.png" class="img-fluid">
+      </div>
+    </div>
+  
+    <div class="card monthly-revenue">
+      <div class="card-body">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9340/monthlyrevenue.png" class="img-fluid">
+      </div>
+    </div>
+  
+    <div class="card time-to-first">
+      <div class="card-body">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9340/timetofirst.png" class="img-fluid">
+      </div>
+    </div>
+  
+    <div class="card signups-by-product">
+      <div class="card-body">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9340/signups.png" class="img-fluid">
+      </div>
+    </div>
+  
+  
+    <div class="card quarterly-profit">
+      <div class="card-body">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/9340/profit.png" class="img-fluid">
+      </div>
+    </div>
+  
+  
+  </div>

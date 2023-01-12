@@ -1,0 +1,6 @@
+<%= content_for :title, @page.title || "Untitled" %>
+<%= turbo_stream_from @page %>
+
+<p style="color: green"><%= notice %></p>
+
+<%= render @page %>

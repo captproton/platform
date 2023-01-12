@@ -9,7 +9,7 @@ export default defineConfig({
       root: __dirname,
       scan: {
         fileExtensions: ['erb', 'haml', 'html', 'vue', 'js', 'ts', 'jsx', 'tsx'],
-        dirs: ['app/views', '../frontend'], // or app/javascript, or app/packs
+        dirs: ['app/views', 'app/frontend'], // or app/javascript, or app/packs
       },
     }),
     FullReload(['config/routes.rb', 'app/views/**/*']),

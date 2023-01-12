@@ -1,7 +1,11 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  get 'backstage/index'
+  namespace :backstage do
+    resources :pages
+    resources :sites, only: [:index, :show]
+
+  end
   draw :madmin
   get '/privacy', to: 'home#privacy'
   get '/terms', to: 'home#terms'

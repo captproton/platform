@@ -1,0 +1,43 @@
+.dashboard-grid {
+    margin-bottom: 40px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+      "metricblocks metricblocks" 
+      "main main" 
+      "secondleft secondright" 
+      "thirdleft thirdright";
+}
+.dashboard-grid .metric-blocks {
+      grid-area: metricblocks;
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .dashboard-grid .card-transactions-chart {
+      grid-area: main;
+    }
+  
+    .dashboard-grid .monthly-revenue {
+      grid-area: secondright;
+    }
+  
+    .dashboard-grid .time-to-first {
+      grid-area: secondleft;
+      
+    }
+  
+    .dashboard-grid .signups-by-product {
+      grid-area: thirdleft;
+    }
+  
+    .dashboard-grid .quarterly-profit {
+      grid-area: thirdright;
+    }
+  }
+  
+  body {
+    margin: 60px;
+  }

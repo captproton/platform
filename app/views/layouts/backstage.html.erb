@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <%= render 'head' %>
+    <%= vite_client_tag %>
+    <%= vite_javascript_tag 'application' %>
+    <!--
+      If using a TypeScript entrypoint file:
+        vite_typescript_tag 'application'
+
+      If using a .jsx or .tsx entrypoint, add the extension:
+        vite_javascript_tag 'application.jsx'
+
+      Visit the guide for more information: https://vite-ruby.netlify.app/guide/rails
+    -->
+
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0"> 
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/notices' %>
+
+      <div class="container mt-4 mx-auto">
+        <%= yield %>
+      </div>
+    </main>
+
+    <%= render 'shared/footer' %>
+  </body>
+</html>

@@ -1,0 +1,2 @@
+module Backstage::SitesHelper
+end

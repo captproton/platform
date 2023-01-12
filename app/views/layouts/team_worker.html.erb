@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'head' %>
+
+
+  </head>
+
+  <body class="d-flex flex-column min-h-screen">
+    <main class="flex-shrink-0">
+      <%#= render 'shared/navbar' %>
+        <%#= render 'shared/notices' %>
+  
+          <div class="container mt-4 mx-auto">
+            <%= yield %>
+          </div>
+    </main>
+  
+    <%= render 'shared/footer' %>
+  </body>
+</html>
