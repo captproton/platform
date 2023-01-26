@@ -101,3 +101,4 @@ gem "maglevcms-hyperui-kit", "~> 1.1"
 
 ## PLEASE STAY TIDY. DO NOT ADD ANYTHING BELOW THIS LINE.
 
+gem "avo"
