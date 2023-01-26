@@ -51,6 +51,9 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "standard"
 end
 
 group :development do
@@ -87,15 +90,14 @@ gem "sitemap_generator", "~> 6.1"
 gem "whenever", require: false
 gem "responders", github: "heartcombo/responders", branch: "main"
 
+## app-specific, not part of jumpstart
 gem "vite_rails", "~> 3.0"
 
 gem "acts_as_tenant", "~> 0.6.1"
 
-group :development, :test do
-  gem "rspec-rails"
-end
+# site management & cms
+gem "maglevcms", "~> 1.1"
+gem "maglevcms-hyperui-kit", "~> 1.1"
 
-group :development, :test do
-  gem "factory_bot_rails"
-end
-gem "standard", group: [:development, :test]
+## PLEASE STAY TIDY. DO NOT ADD ANYTHING BELOW THIS LINE.
+
