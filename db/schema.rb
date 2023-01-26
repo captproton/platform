@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_26_003240) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_26_005437) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -95,6 +95,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_003240) do
     t.string "locale", null: false
     t.string "value", null: false
     t.boolean "canonical", default: true
+    t.bigint "account_id", null: false
+    t.index ["account_id"], name: "index_maglev_page_paths_on_account_id"
     t.index ["canonical", "locale", "value"], name: "canonical_speed"
     t.index ["canonical", "maglev_page_id", "locale"], name: "scoped_canonical_speed"
     t.index ["maglev_page_id"], name: "index_maglev_page_paths_on_maglev_page_id"
@@ -112,6 +114,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_003240) do
     t.jsonb "og_title_translations", default: {}
     t.jsonb "og_description_translations", default: {}
     t.jsonb "og_image_url_translations", default: {}
+    t.bigint "account_id", null: false
+    t.index ["account_id"], name: "index_maglev_pages_on_account_id"
   end
 
   create_table "maglev_sites", force: :cascade do |t|
@@ -122,6 +126,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_003240) do
     t.jsonb "sections_translations", default: {}
     t.integer "lock_version"
     t.jsonb "style", default: []
+    t.bigint "account_id", null: false
+    t.index ["account_id"], name: "index_maglev_sites_on_account_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -177,6 +183,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_003240) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "backstage_pages", "users"
+  add_foreign_key "maglev_page_paths", "accounts"
+  add_foreign_key "maglev_pages", "accounts"
+  add_foreign_key "maglev_sites", "accounts"
   add_foreign_key "projects", "accounts"
   add_foreign_key "services", "users"
 end
