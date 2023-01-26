@@ -157,6 +157,18 @@ GEM
       railties (>= 6.0.0)
     json (2.6.3)
     jwt (2.6.0)
+    kaminari (1.2.2)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.2.2)
+      kaminari-activerecord (= 1.2.2)
+      kaminari-core (= 1.2.2)
+    kaminari-actionview (1.2.2)
+      actionview
+      kaminari-core (= 1.2.2)
+    kaminari-activerecord (1.2.2)
+      activerecord
+      kaminari-core (= 1.2.2)
+    kaminari-core (1.2.2)
     language_server-protocol (3.17.0.2)
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
@@ -167,6 +179,14 @@ GEM
     madmin (1.2.7)
       pagy (>= 3.5, < 6.0)
       rails (>= 6.0.3)
+    maglev-injectable (2.1.1)
+    maglevcms (1.1.7)
+      jbuilder (~> 2.11.2)
+      kaminari (~> 1.2.1)
+      maglev-injectable (~> 2.1.1)
+      rails (>= 6, <= 7.1)
+      vite_rails (>= 3, <= 4)
+    maglevcms-hyperui-kit (1.1.0)
     mail (2.8.0)
       mini_mime (>= 0.1.1)
       net-imap
@@ -405,6 +425,8 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   madmin
+  maglevcms (~> 1.1)
+  maglevcms-hyperui-kit (~> 1.1)
   name_of_person (~> 1.1)
   noticed (~> 1.4)
   omniauth-facebook (~> 8.0)

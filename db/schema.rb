@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_25_235404) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_26_005437) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -80,6 +80,56 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_235404) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
+  create_table "maglev_assets", force: :cascade do |t|
+    t.string "filename"
+    t.string "content_type"
+    t.integer "width"
+    t.integer "height"
+    t.integer "byte_size"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "maglev_page_paths", force: :cascade do |t|
+    t.bigint "maglev_page_id"
+    t.string "locale", null: false
+    t.string "value", null: false
+    t.boolean "canonical", default: true
+    t.bigint "account_id", null: false
+    t.index ["account_id"], name: "index_maglev_page_paths_on_account_id"
+    t.index ["canonical", "locale", "value"], name: "canonical_speed"
+    t.index ["canonical", "maglev_page_id", "locale"], name: "scoped_canonical_speed"
+    t.index ["maglev_page_id"], name: "index_maglev_page_paths_on_maglev_page_id"
+  end
+
+  create_table "maglev_pages", force: :cascade do |t|
+    t.boolean "visible", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "title_translations", default: {}
+    t.jsonb "seo_title_translations", default: {}
+    t.jsonb "meta_description_translations", default: {}
+    t.jsonb "sections_translations", default: {}
+    t.integer "lock_version"
+    t.jsonb "og_title_translations", default: {}
+    t.jsonb "og_description_translations", default: {}
+    t.jsonb "og_image_url_translations", default: {}
+    t.bigint "account_id", null: false
+    t.index ["account_id"], name: "index_maglev_pages_on_account_id"
+  end
+
+  create_table "maglev_sites", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.jsonb "locales", default: []
+    t.jsonb "sections_translations", default: {}
+    t.integer "lock_version"
+    t.jsonb "style", default: []
+    t.bigint "account_id", null: false
+    t.index ["account_id"], name: "index_maglev_sites_on_account_id"
+  end
+
   create_table "notifications", force: :cascade do |t|
     t.string "recipient_type", null: false
     t.bigint "recipient_id", null: false
@@ -133,6 +183,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_235404) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "backstage_pages", "users"
+  add_foreign_key "maglev_page_paths", "accounts"
+  add_foreign_key "maglev_pages", "accounts"
+  add_foreign_key "maglev_sites", "accounts"
   add_foreign_key "projects", "accounts"
   add_foreign_key "services", "users"
 end
