@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  set_current_tenant_by_subdomain_or_domain(:account, :subdomain, :domain)
   impersonates :user
   include Pundit::Authorization
 
@@ -6,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  
   protected
 
     def configure_permitted_parameters

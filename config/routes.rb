@@ -1,6 +1,8 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  resources :projects
+  resources :accounts
   namespace :backstage do
     resources :pages
     resources :sites, only: [:index, :show]
