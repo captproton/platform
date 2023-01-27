@@ -9,7 +9,7 @@
         </p>
       </div>
   
-      <%= image_tag main_app.url_for(@post.cover_photo), class: 'object-cover mx-auto' %>
+      <%= image_tag main_app.url_for(@post.cover_photo), class: 'object-cover mx-auto' if @post.cover_photo %>
       
       <article class="prose lg:prose-lg max-w-full">
         <%= @post.content %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_27_002838) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_27_015728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -156,6 +156,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_27_002838) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "account_id", null: false
+    t.index ["account_id"], name: "index_posts_on_account_id"
   end
 
   create_table "projects", force: :cascade do |t|
@@ -202,6 +204,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_27_002838) do
   add_foreign_key "maglev_page_paths", "accounts"
   add_foreign_key "maglev_pages", "accounts"
   add_foreign_key "maglev_sites", "accounts"
+  add_foreign_key "posts", "accounts"
   add_foreign_key "projects", "accounts"
   add_foreign_key "services", "users"
 end

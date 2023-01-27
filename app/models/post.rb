@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  # acts_as_tenant :account
+  
   validates :title, presence: true
   
   has_rich_text :content

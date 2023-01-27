@@ -1,4 +1,5 @@
 class PostResource < Avo::BaseResource
+
   self.title = :id
   self.includes = []
   # self.search_query = -> do
