@@ -16,9 +16,14 @@
 
   <%= maglev_live_preview_client_javascript_tag %>
 
-  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <!-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> -->
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
 </head>
-<body class="bg-white">
+<body class="font-poppings">
   <main data-maglev-dropzone>
     <%= render_maglev_sections %>
   </main>

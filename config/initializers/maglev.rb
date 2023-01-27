@@ -3,6 +3,7 @@
 Maglev.configure do |config|
   # Title of the Editor window
   # config.title = 'Maglev - Editor'
+  config.title = 'Weblog - Pages'
 
   # Logo of the Editor (top left corner).
   # Put your custom logo in the app/assets/images folder of your Rails application.
@@ -24,6 +25,7 @@ Maglev.configure do |config|
   # Action triggered when clicking on the very bottom left button in the Editor
   # NOTE: If you want the user to signed out from the Editor UI once the back action has been triggered,
   # you'll have to clear the `maglev_site_id` session variable.
+  config.back_action = ->(site) { redirect_to main_app.avo_path }
   # config.back_action = 'https://www.mysite.dev' # External url
   # config.back_action = :my_account_path # name of the route in your Rails application
   # config.back_action = ->(site) { redirect_to main_app.my_account_path(site_id: site.id) }
@@ -54,16 +56,15 @@ Maglev.configure do |config|
   config.uploader = :active_storage
 
   # Collections mapping (https://docs.maglev.dev/guides/setup-collections)
-  # config.collections = {
-  #   products: {
-  #     model: 'Product',
-  #     fields: {
-  #       label: :name,
-  #       image: :thumbnail_url
-  #     }
-  #   }
-  # }
-
+  config.collections = {
+    products: {
+      model: 'Post', # name of the ActiveRecord class
+      fields: {
+        label: :title,
+        image: :thumbnail_url
+      }
+    }
+  }
   # Let your content editors references existing pages of your application but
   # not served/rendered by Maglev.
   # config.static_pages = [

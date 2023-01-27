@@ -26,3 +26,5 @@ import "./controllers"
 //     return new bootstrap.Popover(popoverTriggerEl)
 //   })
 // })
+import "trix"
+import "@rails/actiontext"

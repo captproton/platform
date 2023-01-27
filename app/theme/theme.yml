@@ -24,6 +24,11 @@ section_categories:
   id: testimonial
 - name: "Footer"
   id: footer
+- name: "Hero"   
+  id: hero
+- name: "Blog"
+  id: blog
+
 
 # Properties of your theme such as the primary color, font name, ...etc.
 style_settings: []

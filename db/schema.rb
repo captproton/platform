@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_26_005437) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_27_015728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -20,6 +20,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_005437) do
     t.string "domain"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
   create_table "active_storage_attachments", force: :cascade do |t|
@@ -142,6 +152,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_005437) do
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "account_id", null: false
+    t.index ["account_id"], name: "index_posts_on_account_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.bigint "account_id", null: false
@@ -186,6 +204,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_26_005437) do
   add_foreign_key "maglev_page_paths", "accounts"
   add_foreign_key "maglev_pages", "accounts"
   add_foreign_key "maglev_sites", "accounts"
+  add_foreign_key "posts", "accounts"
   add_foreign_key "projects", "accounts"
   add_foreign_key "services", "users"
 end

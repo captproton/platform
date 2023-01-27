@@ -84,6 +84,8 @@ blocks_presentation: "tree"
 sample:
   settings:
     logo: "/theme/logoipsum.svg"
+    call_to_action: { text: "Action", url: "#" }  
+
   blocks:
   - type: link_group
     settings: []
@@ -133,3 +135,6 @@ sample:
           text: "Register"
           href: "#"
         is_primary: false
+  - type: nav_item
+    settings:
+      link: { text: "Nav item", url: "#" }    
