@@ -87,14 +87,18 @@ Avo.configure do |config|
   # end
 
   ## == Menus ==
-  # config.main_menu = -> {
-  #   section "Dashboards", icon: "dashboards" do
-  #     all_dashboards
-  #   end
+  config.main_menu = -> {
+    section "Dashboards", icon: "dashboards" do
+      all_dashboards
+    end
 
-  #   section "Resources", icon: "resources" do
-  #     all_resources
-  #   end
+    section "Resources", icon: "resources" do
+      all_resources
+    end
+
+    section "Content", icon: "heroicons/outline/document" do
+      link_to "Pages", path: "/maglev/editor"
+    end
 
   #   section "Tools", icon: "tools" do
   #     all_tools
@@ -102,5 +106,5 @@ Avo.configure do |config|
   # }
   # config.profile_menu = -> {
   #   link "Profile", path: "/avo/profile", icon: "user-circle"
-  # }
+  }
 end

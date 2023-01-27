@@ -7,6 +7,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  include Maglev::StandaloneSectionsConcern
+  before_action :fetch_maglev_site_scoped_sections
   
   protected
 
