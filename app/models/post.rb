@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  # acts_as_tenant :account
+  acts_as_tenant :account
   
   validates :title, presence: true
   
